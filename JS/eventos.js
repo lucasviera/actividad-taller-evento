@@ -1,19 +1,16 @@
-let button = document.getElementById("saludar");
-
-button.addEventListener("click",mostrarSaludo);
-
-function mostrarSaludo(){
-    alert('Hola');
-}
-
-let eldiv = document.getElementById("div");
+const button = document.getElementById("saludar");
+const eldiv = document.getElementById("div");
 
 eldiv.addEventListener("click",divsaluda);
 
-function divsaluda(e){
-    alert("Hola! Soy el div");
-    console.log(e)
+button.addEventListener("click", (e) => {
+    alert ("Hola");
+    e.stopPropagation();
+    eldiv.removeEventListener("click", divsaluda);
+});
+
+
+
+function divsaluda(){
+    alert("Hola! Soy el div"); 
 };
-
-
-
